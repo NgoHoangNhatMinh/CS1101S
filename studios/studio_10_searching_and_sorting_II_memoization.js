@@ -32,3 +32,34 @@ function make_optimized_search(A) {
         }  
     };
 }
+
+// Question 2
+
+function bubblesort_list(L) {
+    // Your solution here.
+    const len = length(L);
+    
+    for (let i = len - 1; i >= 1; i = i - 1) {
+        let curr = L;
+        let next = tail(L); 
+        for (let j = 0; j < i; j = j + 1) {
+            if (head(curr) > head(next)) {
+                const a = head(curr);
+                const b = head(next);
+                set_head(next, a);
+                set_head(curr, b);
+                
+                curr = next;
+                next = tail(next);
+            } else {
+                curr = next;
+                next = tail(next);
+            }
+        }
+    }
+}
+
+
+const LL = list(3, 5, 2, 4, 1);
+bubblesort_list(LL);
+LL; // should show [1, [2, [3, [4, [5, null]]]]]
