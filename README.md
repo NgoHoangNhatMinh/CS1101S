@@ -1,1 +1,1 @@
-My CS1101S "diary"!
+My CS1101S "journal"!
