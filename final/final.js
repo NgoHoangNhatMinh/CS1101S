@@ -75,6 +75,17 @@ function 2d_memoize(fun) {
 // However, the passed in function is also slightly modified
 
 /* Q9: metacirculator
+
   in apply(fun, args) --> names = list("a","b",...)
                       --> values = list(1,2,...)
 */
+
+// 2020-2021: revise stream (and memoize stream)
+
+// 2021-2022:
+
+// Question 10: modify list in place does not have a return value --> need to return if required
+
+// Question 15: for array, it might be faster for array operations to use for loop indexing, rather than recursive
+
+// Question 20/21: partial_sums create several instances of streams and add them up everytime --> leading to O(n^2) complexity
