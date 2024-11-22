@@ -89,3 +89,20 @@ function 2d_memoize(fun) {
 // Question 15: for array, it might be faster for array operations to use for loop indexing, rather than recursive
 
 // Question 20/21: partial_sums create several instances of streams and add them up everytime --> leading to O(n^2) complexity
+
+// 2021-2022: So many careless mistake
+
+// Question 5: tail of stream is always a nullary function --> end of stream is a nullary returning null
+
+// Question 9: for tree base case, don't need to separate so many cases --> maybe null base case is enough, don't need to check if left branch is empty for instance
+// since base case already handle that. Unless branch can be number or tree --> then there are multiple cases to consider
+
+// Question 10: tombstone: program is tombstone (look like bread), interpreter is t (remember the arrow), compiler is box, computer is donward arrow
+
+// Question 15/17: be careful! there might be difference between stream implementation in stream vs given in the exam --> the exam may not handle the base case explicityly
+// generating an extra pair (where the last value is not used) --> eval_stream(n) and stream_filter(n) --> may produce n + 1 pairs instead of n pairs
+// This year context should be n pairs
+
+// Question 18: tail of stream is always a nullary function, even at the base case --> nullary function returning null () => null
+
+  
