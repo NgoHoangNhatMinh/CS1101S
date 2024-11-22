@@ -82,25 +82,42 @@ function 2d_memoize(fun) {
 
 // 2020-2021: revise stream (and memoize stream)
 
-// 2021-2022:
+/* 2021-2022:
 
-// Question 10: modify list in place does not have a return value --> need to return if required
+Question 10: modify list in place does not have a return value --> need to return if required
 
-// Question 15: for array, it might be faster for array operations to use for loop indexing, rather than recursive
+Question 15: for array, it might be faster for array operations to use for loop indexing, rather than recursive
 
-// Question 20/21: partial_sums create several instances of streams and add them up everytime --> leading to O(n^2) complexity
+Question 20/21: partial_sums create several instances of streams and add them up everytime --> leading to O(n^2) complexity
 
-// 2022-2023: So many careless mistake
+*/
 
-// Question 9: for tree base case, don't need to separate so many cases --> maybe null base case is enough, don't need to check if left branch is empty for instance
-// since base case already handle that. Unless branch can be number or tree --> then there are multiple cases to consider
+/* 2022-2023: So many careless mistake
 
-// Question 10: tombstone: program is tombstone (look like bread), interpreter is t (remember the arrow), compiler is box, computer is donward arrow
+Question 9: for tree base case, don't need to separate so many cases --> maybe null base case is enough, don't need to check if left branch is empty for instance
+since base case already handle that. Unless branch can be number or tree --> then there are multiple cases to consider
 
-// Question 15/17: be careful! there might be difference between stream implementation in stream vs given in the exam --> the exam may not handle the base case explicityly
-// generating an extra pair (where the last value is not used) --> eval_stream(n) and stream_filter(n) --> may produce n + 1 pairs instead of n pairs
-// This year context should be n pairs
+Question 10: tombstone: program is tombstone (look like bread), compiler is t (remember the arrow), interpreter is box, computer is donward arrow
 
-// Question 5/18: tail of stream is always a nullary function, even at the base case --> nullary function returning null () => null
+Question 15/17: be careful! there might be difference between stream implementation in stream vs given in the exam --> the exam may not handle the base case explicityly
+generating an extra pair (where the last value is not used) --> eval_stream(n) and stream_filter(n) --> may produce n + 1 pairs instead of n pairs
+This year context should be n pairs
 
-  
+Question 5/18: tail of stream is always a nullary function, even at the base case --> nullary function returning null () => null
+
+*/
+
+/* 2023-2024:
+
+Number of pairs in stream_ref/evaluation: best to draw out the CSE machine
+
+Since tail of stream is nullary function --> most of the time, it creates new environment, and hence new pair
+  Except the head element, which may refer to the same pair over and over again
+
+Some functions that append stream/manipulate stream may not have lazy implementation --> should manipulate return value to make it lazy
+
+CSE: environment = list(..., [names3, vals3], [names2, vals2], [names1, vals1], [names0, vals0]);
+
+  extending env = pair [names] to [vals] --> initially, vals is gonna be undefined
+
+  first_frame is the closest enclosing frame
